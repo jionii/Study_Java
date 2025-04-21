@@ -2,14 +2,15 @@ package ch07.sec03.exam02;
 
 public class SmartPhone extends Phone{
 
-    public SmartPhone() {
-//        super();
-        // 부모의 기본 생성자를 호출 할 수 없음
-    }
+    // public SmartPhone() {
+    //     super(); // <- Phone클래스(부모클래스)에 기본 생성자가 없으면 이건 에러 남!
+    // }
+
     public SmartPhone(String model, String color) {
         // 자식 생성자에서는 부모 생성자를 무조건 호출
         // 부모 필드를 호출하려면, 부모 생성자가 그 필드를 매개변수로 받아야 하고
         // 자식 생성자에서 "super(필드에 대한 값)"을 호출해야함
+        // 자식 생성자에서 부모 생성자는 무조건 첫 줄에 호출돼야 함
         super(model, color);
         System.out.println("SmartPhone 생성자 호출됨..");
     }
@@ -29,6 +30,7 @@ public class SmartPhone extends Phone{
 
     @Override // 컴파일시 정확히 오버라이딩 되었는지 체크해줌
     public void printModel() {
+        // 자식 클래스 안에서 부모의 메서드를 호출하고 싶다면 super.메서드이름()
         super.printModel();
     }
 }
