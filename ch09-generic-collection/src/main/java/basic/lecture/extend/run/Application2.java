@@ -27,8 +27,8 @@ public class Application2 {
         wildCardFarm.extendsType(new RabbitFarm<Bunny>(new Bunny()));
         wildCardFarm.extendsType(new RabbitFarm<DrunkenBunny>(new DrunkenBunny()));
 
-        // 와일드 카드의 매개변수 타입 제한이 없는 경우
-        // 토끼 농장 자체가 생성 불가능한 것은 매개변수로 사용 불가능
+        // 와일드 카드의 매개변수 타입 제한이 super 일 경우
+        // Bunny 이거나 Bunny의 상위만 사용 가능 (DrunkenBunny는 Bunny의 하위라 불가)
         wildCardFarm.superType(new RabbitFarm<Rabbit>(new Rabbit()));
         wildCardFarm.superType(new RabbitFarm<Bunny>(new Bunny()));
 //        wildCardFarm.superType(new RabbitFarm<DrunkenBunny>(new DrunkenBunny()));
